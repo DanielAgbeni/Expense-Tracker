@@ -1,8 +1,8 @@
 /** @format */
 import ExpensesFilter from './ExpenseFilter'
-import ExpenseItem from './ExpenseItem'
 import Card from './Card'
 import './ExpenseItem.css'
+import ExpensesList from './ExpenseList'
 import { useState } from 'react'
 
 const local = Navigator.geolocation
@@ -15,13 +15,6 @@ const Expenses = (props) => {
 	const filteredExpenses = props.items.filter((expense) => {
 		return expense.date.getFullYear().toString() === filteredYear
 	})
-
-	const formCurr = (value) =>
-		new Intl.NumberFormat(local, {
-			style: 'currency',
-			currency: 'NGN',
-		}).format(value)
-
 	return (
 		<div>
 			<Card className='expenses'>
@@ -29,16 +22,7 @@ const Expenses = (props) => {
 					selected={filteredYear}
 					onChangeFilter={filterChangeHandler}
 				/>
-				{filteredExpenses.length === 0 && <p>No Expenses Found</p>}
-				{filteredExpenses.length > 0 &&
-					filteredExpenses.map((expenses) => (
-						<ExpenseItem
-							key={expenses.id}
-							title={expenses.title}
-							amount={formCurr(expenses.amount)}
-							date={expenses.date}
-						/>
-					))}
+				<ExpensesList items={filteredExpenses} />
 			</Card>
 		</div>
 	)
