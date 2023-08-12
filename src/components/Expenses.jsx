@@ -5,8 +5,6 @@ import './ExpenseItem.css'
 import ExpensesList from './ExpenseList'
 import { useState } from 'react'
 
-const local = Navigator.geolocation
-
 const Expenses = (props) => {
 	const [filteredYear, setFilteredYear] = useState('2023')
 	const filterChangeHandler = (selectedYear) => {

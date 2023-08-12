@@ -1,6 +1,8 @@
 /** @format */
 import './ExpenseItem.css'
 import ExpenseItem from './ExpenseItem'
+
+const local = Navigator.geolocation
 const formCurr = (value) =>
 	new Intl.NumberFormat(local, {
 		style: 'currency',
@@ -13,7 +15,7 @@ const ExpensesList = (props) => {
 	}
 	return (
 		<ul className='expenses-list'>
-			{props.item.map((expenses) => (
+			{props.items.map((expenses) => (
 				<ExpenseItem
 					key={expenses.id}
 					title={expenses.title}
