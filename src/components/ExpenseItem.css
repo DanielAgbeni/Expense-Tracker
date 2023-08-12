@@ -176,6 +176,16 @@ p {
 	color: #fff;
 }
 
+/* Expense List */
+.expenses-list {
+	list-style: none;
+	padding: 0;
+}
+.expenses-list__fallback {
+	color: #fff;
+	text-align: center;
+}
+
 /* Resposive */
 @media (min-width: 580px) {
 	.expense-item__description {
