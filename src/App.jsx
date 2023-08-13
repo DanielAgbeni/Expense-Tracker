@@ -27,12 +27,23 @@ const App = () => {
 	const addExpenseForm = (expense) => {
 		setExpenses((prevExpenses) => [expense, ...prevExpenses])
 	}
+	useEffect(() => {
+    // Load AdSense script
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }, []);
 	return (
 		<>
 			<div>
 				<NewExpense addExpense={addExpenseForm} />
 				<Expenses items={expenses} />
 			</div>
+			<ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-4884232232976809"
+        data-ad-slot="7038514319"
+        data-ad-format="auto"
+      />
 		</>
 	)
 }
