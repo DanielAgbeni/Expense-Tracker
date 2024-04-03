@@ -18,7 +18,7 @@ const App = () => {
 		if (storedExpenses) {
 			setExpenses(JSON.parse(storedExpenses))
 		}
-	}, [])
+	}, [expenses])
 
 	// Save expenses to local storage whenever the expenses state changes
 	useEffect(() => {
